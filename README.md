@@ -30,7 +30,7 @@ Apply the "Stateful" firewall rules. Note that SSH is restricted to your specifi
 # Create SG and open ports in one line
 aws ec2 create-security-group --group-name charan-sg --description "charan security group" --vpc-id <vpc-id> --tag-specifications "ResourceType=security-group,Tags=[{Key=Name,Value=charan-sg}]"
 # Restrict SSH to My IP
-aws ec2 authorize-security-group-ingress --group-id <sg-id> --protocol tcp --port 22 --cidr $(curl -s http://amazonaws.com)/32
+aws ec2 authorize-security-group-ingress --group-id <sg-id> --protocol tcp --port 22 --cidr $(curl -s http://checkip.amazonaws.com)/32
 # Open HTTP to Everyone
 aws ec2 authorize-security-group-ingress --group-id <sg-id> --protocol tcp --port 80 --cidr 0.0.0.0/0
 
